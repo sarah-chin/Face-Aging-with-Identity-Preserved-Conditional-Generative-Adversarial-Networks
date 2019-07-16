@@ -105,7 +105,7 @@ def generate_images_from_folder(model, sess, test_data_dir=None, train_data_dir=
     assert train_imgs.shape[0] == (FLAGS.batch_size-1)
 
     for i in range(len(paths)):
-        print i
+        print(i)
         temp = np.reshape(source[i], (1, 128, 128, 3))
         save_source(temp, [1, 1], os.path.join(FLAGS.save_dir, paths[i]))
         images = np.concatenate((temp, train_imgs), axis=0)
