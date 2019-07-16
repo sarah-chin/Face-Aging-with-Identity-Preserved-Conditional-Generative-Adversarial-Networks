@@ -136,13 +136,13 @@ def generate_images(model, sess):
         save_images(samples, [1, 1], os.path.join(FLAGS.save_dir, paths[0] + '_' + str(j) + '.jpg'))
 
     time2 = time.time() - time1
-    print time2
+    print(time2)
 
 
 
 def stable_bn(model, sess, num_iter):
     for iter in range(num_iter):
-        print iter
+        print(iter)
         train_imgs, _ = generator.next_source_imgs(0, 128, batch_size=FLAGS.batch_size)
         for j in range(1, generator.n_classes):
             true_label_fea = generator.label_features_128[j]
