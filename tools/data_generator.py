@@ -51,7 +51,7 @@ class ImageDataGenerator:
         self.z_dim = z_dim
         self.img_size = self.height
 
-        self.read_class_list(self.class_lists)
+        #self.read_class_list(self.class_lists)
         if self.shuffle:
             self.shuffle_data(shuffle_all=True)
 
@@ -312,7 +312,7 @@ class ImageDataGenerator:
         paths = os.listdir(data_dir)
         # Read images
         imgs = np.ndarray([len(paths), img_size, img_size, 3])
-        for i in range(len(paths)):
+        for i in range(1, len(paths)):
             img = cv2.imread(os.path.join(data_dir, paths[i]))
             img = img[:, :, [2, 1, 0]]
             # rescale image
@@ -405,7 +405,7 @@ class ImageDataGenerator:
 
         return imgs, self.one_hot_labels[index], self.label_features_64[index], \
                self.label_features_64[error_label], self.age_label[index]
-    
+
     def next_target_batch_transfer2(self):
         index = self.true_labels[self.label_pair_index]
         paths = self.images[index][self.pointer[index]:self.pointer[index] + self.batch_size]
