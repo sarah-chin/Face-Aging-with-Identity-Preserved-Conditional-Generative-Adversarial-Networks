@@ -40,7 +40,7 @@ flags.DEFINE_string("checkpoint_dir", './checkpoints/0_conv5_lsgan_transfer_g75_
 flags.DEFINE_string("save_dir", 'age/0_conv5_lsgan_transfer_g75_0.5f-4_a30/',
                     "Directory name to save the sample images")
 
-flags.DEFINE_string("test_data_dir", './images/test/', "test images")
+flags.DEFINE_string("test_data_dir", '/home/sarah/2807.小池徹平', "test images")
 
 flags.DEFINE_string("train_data_dir", './images/train/', "train images")
 
@@ -104,7 +104,7 @@ def generate_images_from_folder(model, sess, test_data_dir=None, train_data_dir=
 
     assert train_imgs.shape[0] == (FLAGS.batch_size-1)
 
-    for i in range(1, len(paths)):
+    for i in range(1,len(paths)):
         print(i)
         temp = np.reshape(source[i], (1, 128, 128, 3))
         save_source(temp, [1, 1], os.path.join(FLAGS.save_dir, paths[i]))
