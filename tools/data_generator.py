@@ -16,12 +16,12 @@ class ImageDataGenerator:
         # Init params
         self.root_folder = '/new_disk2/wangzw/tangxu/CACD_cropped_400/'
         if mode == 'train':
-            self.file_folder = '/new_disk2/wangzw/tangxu/age_data/train_data/'
-            self.class_lists = ['train_age_group_0.txt',
-                               'train_age_group_1.txt',
-                               'train_age_group_2.txt',
-                               'train_age_group_3.txt',
-                               'train_age_group_4.txt']
+            self.file_folder = 'age_groups'
+            self.class_lists = ['age_group_0.txt',
+                               'age_group_1.txt',
+                               'age_group_2.txt',
+                               'age_group_3.txt',
+                               'age_group_4.txt']
             self.pointer = [0, 0, 0, 0, 0]
         else:
             self.file_folder = '/new_disk2/wangzw/tangxu/age_data/test_data/'
@@ -51,7 +51,7 @@ class ImageDataGenerator:
         self.z_dim = z_dim
         self.img_size = self.height
 
-        #self.read_class_list(self.class_lists)
+        self.read_class_list(self.class_lists)
         if self.shuffle:
             self.shuffle_data(shuffle_all=True)
 
